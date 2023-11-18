@@ -1,16 +1,17 @@
 #include "main.h"
 /**
- * print_int - prints integers
- * @args: argument
+ * print_dec - prints decimal integers
+ * @args: arguments
+ *
  * Return: number of chars
  */
 
-int print_int(va_list args)
+int print_dec(va_list args)
 {
 	int num = va_arg(args, int);
-	int t = num;
 	int i = 0;
 	int div = 1;
+	int t = num;
 
 	if (num < 0)
 	{
