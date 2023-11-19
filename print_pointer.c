@@ -9,7 +9,7 @@ int print_pointer(va_list args)
 {
 	void *ptr = va_arg(args, void *);
 	char *str = "(nil)";
-	unsigned long int temp = (unsigned long int )ptr;
+	unsigned long int temp = (unsigned long int)ptr;
 	int count = 0;
 
 	if (!ptr)
@@ -41,7 +41,7 @@ int print_hex(unsigned long int outcome)
 	if (outcome == 0)
 	{
 		_putchar('0');
-		return(1);
+		return (1);
 	}
 
 	while (temp != 0)
@@ -57,6 +57,6 @@ int print_hex(unsigned long int outcome)
 	{
 		digit = (outcome >> (i * 4)) & 0xF;
 		_putchar(hex_lower[digit]);
-        }
-        return (count);
+	}
+	return (count);
 }
