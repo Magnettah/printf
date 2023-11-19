@@ -11,10 +11,11 @@ int print_binary(va_list args)
 	int i;
 	int count = 0;
 	int sig = 0;
+	int new = (result >> 1) & 1;
 
 	for (i = 31; i >= 0; i--)
 	{
-		if ((result >> i) & 1)
+		if (new)
 		{
 			sig = i;
 			break;
@@ -28,7 +29,7 @@ int print_binary(va_list args)
 
 	for (i = sig; i >= 0; i--)
 	{
-		_putchar(((result >> i) & 1) + '0');
+		_putchar(new + '0');
 		count++;
 	}
 	return (count);

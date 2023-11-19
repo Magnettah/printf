@@ -1,19 +1,17 @@
 #include "main.h"
 
 /**
- * print_hex_low - returns the lowercase hexadecimal representation of an int
+ * print_hex - converts to hexadecimal
  * @args: argument
  *
  * Return: number of chars
  */
 
-int print_hex_low(va_list args)
+int print_hex(unsigned long int outcome)
 {
-	int count = 0;
-	int *hex_lower;
-	unsigned int outcome = va_arg(args, unsigned int);
-	unsigned int temp = outcome;
-	int i;
+	long int i, count = 0;
+	long int *hex_lower;
+	unsigned int long temp = outcome;
 
 	while (temp / 16 != 0)
 	{
@@ -21,7 +19,7 @@ int print_hex_low(va_list args)
 		count++;
 	}
 	count++;
-	hex_lower = malloc(sizeof(int) * count);
+	hex_lower = malloc(sizeof(long int) * count);
 
 	for (i = 0; i < count; i++)
 	{

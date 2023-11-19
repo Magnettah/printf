@@ -15,9 +15,9 @@ int print_hex_upper(va_list args)
 	unsigned int temp = outcome;
 	int i;
 
-	while (outcome /16 != 0)
+	while (temp / 16 != 0)
 	{
-		outcome = outcome / 16;
+		temp /= 16;
 		count++;
 	}
 	count++;
@@ -25,14 +25,19 @@ int print_hex_upper(va_list args)
 
 	for (i = 0; i < count; i++)
 	{
-		hex_upper[i] = temp % 16;
-		temp = temp / 16;
+		hex_upper[i] = outcome % 16;
+		outcome /= 16;
 	}
 	for (i = count - 1; i >= 0; i--)
 	{
-		if (hex_upper[i] > 9)
-			hex_upper[i] = hex_upper[i] + 7;
-		_putchar(hex_upper[i] + '\0');
+		if (hex_upper[i] < 10)
+		{
+			_putchar('0' + hex_upper[i]);
+		}
+		else
+		{
+			_putchar('A' + (hex_upper[i] - 10));
+		}
 	}
 
 	free(hex_upper);

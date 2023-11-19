@@ -9,17 +9,24 @@
 int print_reverse(va_list val)
 {
 	char *str = va_arg(val, char*);
-	int a, b = 0;
+	int i, j, len = 0;
+	char *rev;
 
 	if (str == NULL)
 		str = "(null)";
 
-	while (str[b] != '\0')
-		b++;
+	while (str[len] != '\0')
+		len++;
 
-	for (a = b - 1; a >= 0; a--)
-		_putchar(str[a]);
+	rev = malloc((len + 1) * sizeof(char));
 
-	return (b);
+	for (i = len - 1, j = 0; i >= 0; i--, j++)
+		rev[j] = str[i];
+
+	for (i = 0; rev[i] != '\0'; i++)
+		_putchar(rev[i]);
+
+	free(rev);
+	return (len);
 }
 
